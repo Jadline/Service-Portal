@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(135deg, #1a1a1a, #d63384, #6b21a8);
+  /* Dark gray → muted pink → deep purple */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
