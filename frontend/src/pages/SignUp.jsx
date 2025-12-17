@@ -14,7 +14,6 @@ export default function SignUp() {
     setErrorMessage("");
 
     try {
-      
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
@@ -25,7 +24,9 @@ export default function SignUp() {
 
       if (error) throw new Error(error.message);
 
-      alert("Account created successfully! Please check your email to confirm.");
+      alert(
+        "Account created successfully! Please check your email to confirm."
+      );
       navigate("/login");
     } catch (err) {
       setErrorMessage(err.message);
@@ -38,9 +39,12 @@ export default function SignUp() {
     <div className="flex min-h-screen p-3">
       <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
-          <h2 className="mt-8 text-2xl font-bold tracking-tight text-white">Create an Account</h2>
+          <h2 className="mt-8 text-2xl font-bold tracking-tight text-white">
+            Create an Account
+          </h2>
           <p className="mt-2 text-sm text-gray-400">
-            Choose <strong>Admin</strong> for demo purposes to see admin view, otherwise <strong>User</strong>.
+            Choose <strong>Admin</strong> for demo purposes to see admin view,
+            otherwise <strong>User</strong>.
           </p>
 
           {errorMessage && (
@@ -49,7 +53,9 @@ export default function SignUp() {
 
           <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-100">Full Name</label>
+              <label className="block text-sm font-medium text-gray-100">
+                Full Name
+              </label>
               <input
                 {...register("fullName", { required: true })}
                 className="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-1 outline-white/10"
@@ -57,7 +63,9 @@ export default function SignUp() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-100">Email</label>
+              <label className="block text-sm font-medium text-gray-100">
+                Email
+              </label>
               <input
                 type="email"
                 {...register("email", { required: true })}
@@ -66,7 +74,9 @@ export default function SignUp() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-100">Password</label>
+              <label className="block text-sm font-medium text-gray-100">
+                Password
+              </label>
               <input
                 type="password"
                 {...register("password", { required: true })}
@@ -75,14 +85,20 @@ export default function SignUp() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-100">Role</label>
+              <label className="block text-sm font-medium text-gray-100">
+                Role
+              </label>
               <select
                 {...register("role", { required: true })}
                 className="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-1 outline-white/10"
               >
                 <option value="">Select Role</option>
-                <option value="user" className="text-black">User</option>
-                <option value="admin" className="text-black">Admin</option>
+                <option value="user" className="text-black">
+                  User
+                </option>
+                <option value="admin" className="text-black">
+                  Admin
+                </option>
               </select>
             </div>
 
@@ -96,7 +112,10 @@ export default function SignUp() {
 
             <p className="mt-4 text-center text-sm text-gray-400">
               Already have an account?{" "}
-              <Link to="/login" className="font-semibold text-indigo-400 hover:text-indigo-300">
+              <Link
+                to="/login"
+                className="font-semibold text-indigo-400 hover:text-indigo-300"
+              >
                 Log In
               </Link>
             </p>

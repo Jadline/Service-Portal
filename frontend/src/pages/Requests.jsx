@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../supabaseClient";
+import { supabase } from "../../supabaseClient";
 
 const statusColors = {
   Pending: "bg-yellow-400 text-black",
@@ -112,16 +112,23 @@ export default function Requests() {
                 {/* Request Info */}
                 <div className="flex-1">
                   <div className="flex justify-between items-center">
-                    <h2 className="text-lg font-semibold text-white">{req.requestTitle}</h2>
+                    <h2 className="text-lg font-semibold text-white">
+                      {req.requestTitle}
+                    </h2>
                     <span
-                      className={`px-2 py-1 text-xs font-medium rounded ${statusColors[req.status]}`}
+                      className={`px-2 py-1 text-xs font-medium rounded ${
+                        statusColors[req.status]
+                      }`}
                     >
                       {req.status}
                     </span>
                   </div>
-                  <p className="text-gray-400 text-sm line-clamp-2 mt-1">{req.requestDescription}</p>
+                  <p className="text-gray-400 text-sm line-clamp-2 mt-1">
+                    {req.requestDescription}
+                  </p>
                   <p className="text-green-500 text-xs mt-1">
-                    From <b className="text-green-200">{req.requestingCompany}</b> to{" "}
+                    From{" "}
+                    <b className="text-green-200">{req.requestingCompany}</b> to{" "}
                     <b>{req.serviceProvider}</b>
                   </p>
                 </div>
@@ -157,10 +164,19 @@ export default function Requests() {
                   exit={{ opacity: 0, height: 0 }}
                   className="mt-4 text-gray-300 text-sm space-y-1"
                 >
-                  <p><b>Company Email:</b> {req.companyEmail || "N/A"}</p>
-                  <p><b>Contact Person:</b> {req.contactName || "N/A"}</p>
-                  <p><b>Contact Email:</b> {req.contactEmail || "N/A"}</p>
-                  <p><b>Submitted At:</b> {new Date(req.submittedAt).toLocaleString()}</p>
+                  <p>
+                    <b>Company Email:</b> {req.companyEmail || "N/A"}
+                  </p>
+                  <p>
+                    <b>Contact Person:</b> {req.contactName || "N/A"}
+                  </p>
+                  <p>
+                    <b>Contact Email:</b> {req.contactEmail || "N/A"}
+                  </p>
+                  <p>
+                    <b>Submitted At:</b>{" "}
+                    {new Date(req.submittedAt).toLocaleString()}
+                  </p>
                 </motion.div>
               )}
             </motion.li>
@@ -179,7 +195,10 @@ export default function Requests() {
                 type="text"
                 value={editingRequest.requestTitle}
                 onChange={(e) =>
-                  setEditingRequest({ ...editingRequest, requestTitle: e.target.value })
+                  setEditingRequest({
+                    ...editingRequest,
+                    requestTitle: e.target.value,
+                  })
                 }
                 className="w-full border px-2 py-1 rounded"
               />
@@ -189,7 +208,10 @@ export default function Requests() {
               <textarea
                 value={editingRequest.requestDescription}
                 onChange={(e) =>
-                  setEditingRequest({ ...editingRequest, requestDescription: e.target.value })
+                  setEditingRequest({
+                    ...editingRequest,
+                    requestDescription: e.target.value,
+                  })
                 }
                 className="w-full border px-2 py-1 rounded"
               />
@@ -199,7 +221,10 @@ export default function Requests() {
               <select
                 value={editingRequest.status}
                 onChange={(e) =>
-                  setEditingRequest({ ...editingRequest, status: e.target.value })
+                  setEditingRequest({
+                    ...editingRequest,
+                    status: e.target.value,
+                  })
                 }
                 className="w-full border px-2 py-1 rounded"
               >
