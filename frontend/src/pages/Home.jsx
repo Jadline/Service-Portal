@@ -5,7 +5,7 @@ import Hero from "../components/Hero"
 import Logos from "../components/Logos"
 import PageNav from "../components/PageNav"
 
-function Home(){
+export default function Home(){
     return(
         <div>
             <PageNav/>
@@ -17,4 +17,3 @@ function Home(){
         </div>
     )
 }
-export default Home
