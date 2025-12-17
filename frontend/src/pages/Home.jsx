@@ -1,8 +1,9 @@
-import Features from "../Features";
-import Footer from "../Footer";
-import Hero from "../Hero";
-import Logos from "../Logos";
-import PageNav from "../PageNav";
+import PageNav from "../components/PageNav";
+import Features from "../components/Features";
+import Footer from "../components/Footer";
+import Hero from "../components/Hero";
+import Logos from "../components/Logos";
+// import PageNav from "../PageNav";
 
 export default function Home() {
   return (
