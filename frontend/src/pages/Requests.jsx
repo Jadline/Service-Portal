@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../../supabaseClient";
+import { supabase } from "../supabaseClient";
 
 const statusColors = {
   Pending: "bg-yellow-400 text-black",
